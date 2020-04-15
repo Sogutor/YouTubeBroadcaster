@@ -1,0 +1,137 @@
+﻿<UserControl x:Class="Broadcaster.UI.Views.SessionConfiguratorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Broadcaster.UI.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="300">
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <materialDesign:Card  Margin="2" VerticalAlignment="Stretch"  Padding="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Настройки трансляции" FontSize="20" HorizontalAlignment="Center"></TextBlock>
+                    <Border Grid.Row="1" BorderThickness="0 1 0 0"  BorderBrush="{DynamicResource MaterialDesignDivider}" Margin="0 8 0 0">
+                        <TextBlock Text="Источники видео" FontSize="15" HorizontalAlignment="Center"></TextBlock>
+                    </Border>
+                    <Border Grid.Row="2" BorderThickness="0 1 0 0"  BorderBrush="{DynamicResource MaterialDesignDivider}" Margin="0 8 0 0">
+                        <Grid Margin="8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,5,0" Text="Главный:" VerticalAlignment="Center" materialDesign:TransitionAssist.DisableTransitions="False"/>
+                            <!--materialDesign:HintAssist.HintOpacity="0.26"-->
+                            <ComboBox Grid.Row="0"  Grid.Column="1"  SelectedItem="{Binding SelectedShowTypeMain ,Mode=TwoWay}"  ItemsSource="{Binding ShowTypes}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectionChanged">
+                                        <i:InvokeCommandAction Command="{Binding SomeChangeCommand}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </ComboBox>
+
+                        </Grid>
+                    </Border>
+                    <!--<Border Grid.Row="3" IsEnabled="False"  BorderBrush="{DynamicResource MaterialDesignDivider}" Margin="0 8 0 0">
+                        <Grid Margin="8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,5,0" Text="Вторичный:" VerticalAlignment="Center" materialDesign:TransitionAssist.DisableTransitions="False"/>
+                            --><!--materialDesign:HintAssist.HintOpacity="0.26"--><!--
+                            <ComboBox Grid.Row="0"  Grid.Column="1"  SelectedItem="{Binding SelectedShowTypeSecondary ,Mode=TwoWay}"  ItemsSource="{Binding ShowTypes}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectionChanged">
+                                        <i:InvokeCommandAction Command="{Binding SomeChangeCommand}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </ComboBox>
+                        </Grid>
+                    </Border>-->
+                    <Border Grid.Row="3" BorderThickness="0 0 0 0" IsEnabled="{Binding EnableWindowSelect,Mode=OneWay}" BorderBrush="{DynamicResource MaterialDesignDivider}" Margin="0 8 0 0">
+                        <Grid Margin="8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,5,0" Text="Окно:" VerticalAlignment="Center" materialDesign:TransitionAssist.DisableTransitions="False"/>
+                            <!--materialDesign:HintAssist.HintOpacity="0.26"-->
+                            <ComboBox Grid.Row="0"  Grid.Column="1"  SelectedItem="{Binding SelectWindow ,Mode=TwoWay}"  ItemsSource="{Binding WindowsNames}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectionChanged">
+                                        <i:InvokeCommandAction Command="{Binding SomeChangeCommand}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </ComboBox>
+                        </Grid>
+                    </Border>
+                    <Border Grid.Row="4" BorderThickness="0 0 0 0" BorderBrush="{DynamicResource MaterialDesignDivider}" Margin="0 8 0 0">
+                        <Grid Margin="8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="90"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,5,0" Text="Камера:" VerticalAlignment="Center" materialDesign:TransitionAssist.DisableTransitions="False"/>
+                            <!--materialDesign:HintAssist.HintOpacity="0.26"-->
+                            <ComboBox Grid.Row="0" Grid.Column="1" SelectedItem="{Binding SelectedVideoDevice ,Mode=TwoWay}"   ItemsSource="{Binding VideoDevices}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectionChanged">
+                                        <i:InvokeCommandAction Command="{Binding SomeChangeCommand}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </ComboBox>
+                        </Grid>
+                    </Border>
+                    <Border Grid.Row="5" BorderThickness="0 1 0 0"  BorderBrush="{DynamicResource MaterialDesignDivider}" Margin="0 8 0 0">
+                        <TextBlock Text="Источник аудио" FontSize="15" HorizontalAlignment="Center"></TextBlock>
+                    </Border>
+                    <Border Grid.Row="6" BorderThickness="0 1 0 0"  BorderBrush="{DynamicResource MaterialDesignDivider}" Margin="0 8 0 0">
+                        <Grid Margin="8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="90"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,5,0" Text="Микрофон:" VerticalAlignment="Center" materialDesign:TransitionAssist.DisableTransitions="False"/>
+                            <!--materialDesign:HintAssist.HintOpacity="0.26"-->
+                            <ComboBox Grid.Row="0" Grid.Column="1"  SelectedItem="{Binding SelectedAudioDevice ,Mode=TwoWay}"  ItemsSource="{Binding AudioDevices}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectionChanged">
+                                        <i:InvokeCommandAction Command="{Binding SelectedIAudioDeviceChangeCommand}"/>
+                                        <i:InvokeCommandAction Command="{Binding SomeChangeCommand}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </ComboBox>
+                        </Grid>
+                    </Border>
+                    <Border Grid.Row="7" BorderBrush="{DynamicResource MaterialDesignDivider}" Margin="0 0 0 0">
+                        <Grid Margin="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <!--materialDesign:HintAssist.HintOpacity="0.26"-->
+                            <Slider Panel.ZIndex="0"  Grid.Row="0"  Minimum="0" Maximum="100" Value="{Binding MicrophoneVolume,Mode=TwoWay}"/>
+                            <TextBlock Grid.Row="1"  Margin="0,0,5,0" Text="Чувствительность микрофона" HorizontalAlignment="Center" VerticalAlignment="Center" materialDesign:TransitionAssist.DisableTransitions="False"/>
+                            <ProgressBar Grid.Row="2" Margin="5" Orientation="Horizontal" Value="{Binding CurrentInputLevel, Mode=OneWay}" Style="{StaticResource SampleMaxProgressBar}" Height="20" />
+                        </Grid>
+                    </Border>
+                </Grid>
+            </materialDesign:Card>
+
+        </ScrollViewer>
+    </Grid>
+</UserControl>

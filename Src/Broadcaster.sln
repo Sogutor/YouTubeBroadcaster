@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Broadcaster.Core", "Broadcaster.Core\Broadcaster.Core.csproj", "{4F7C55D1-C3EC-4448-91B0-501AC8CE2A77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Broadcaster.YouTube", "Broadcaster.YouTube\Broadcaster.YouTube.csproj", "{D784B582-F085-4203-B8FB-FD1F9F41BFDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Broadcaster.UI", "Broadcaster.UI\Broadcaster.UI.csproj", "{13534065-6F41-4A77-B568-C828D45E1228}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Broadcaster.Interfaces", "Broadcaster.Interfaces\Broadcaster.Interfaces.csproj", "{45CE54B4-A6D8-4AC1-A651-9FC5E956E62A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Production|Any CPU = Production|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F7C55D1-C3EC-4448-91B0-501AC8CE2A77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F7C55D1-C3EC-4448-91B0-501AC8CE2A77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F7C55D1-C3EC-4448-91B0-501AC8CE2A77}.Production|Any CPU.ActiveCfg = Production|Any CPU
+		{4F7C55D1-C3EC-4448-91B0-501AC8CE2A77}.Production|Any CPU.Build.0 = Production|Any CPU
+		{4F7C55D1-C3EC-4448-91B0-501AC8CE2A77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F7C55D1-C3EC-4448-91B0-501AC8CE2A77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D784B582-F085-4203-B8FB-FD1F9F41BFDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D784B582-F085-4203-B8FB-FD1F9F41BFDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D784B582-F085-4203-B8FB-FD1F9F41BFDE}.Production|Any CPU.ActiveCfg = Production|Any CPU
+		{D784B582-F085-4203-B8FB-FD1F9F41BFDE}.Production|Any CPU.Build.0 = Production|Any CPU
+		{D784B582-F085-4203-B8FB-FD1F9F41BFDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D784B582-F085-4203-B8FB-FD1F9F41BFDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13534065-6F41-4A77-B568-C828D45E1228}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13534065-6F41-4A77-B568-C828D45E1228}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13534065-6F41-4A77-B568-C828D45E1228}.Production|Any CPU.ActiveCfg = Production|Any CPU
+		{13534065-6F41-4A77-B568-C828D45E1228}.Production|Any CPU.Build.0 = Production|Any CPU
+		{13534065-6F41-4A77-B568-C828D45E1228}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13534065-6F41-4A77-B568-C828D45E1228}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45CE54B4-A6D8-4AC1-A651-9FC5E956E62A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45CE54B4-A6D8-4AC1-A651-9FC5E956E62A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45CE54B4-A6D8-4AC1-A651-9FC5E956E62A}.Production|Any CPU.ActiveCfg = Production|Any CPU
+		{45CE54B4-A6D8-4AC1-A651-9FC5E956E62A}.Production|Any CPU.Build.0 = Production|Any CPU
+		{45CE54B4-A6D8-4AC1-A651-9FC5E956E62A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45CE54B4-A6D8-4AC1-A651-9FC5E956E62A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

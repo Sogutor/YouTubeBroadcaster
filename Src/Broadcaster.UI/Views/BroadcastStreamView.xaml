@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="Broadcaster.UI.Views.BroadcastStreamView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Broadcaster.UI.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:webEye="clr-namespace:WebEye;assembly=WebEye.StreamPlayerControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="700">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <local:StreamPlayerView DataContext="{Binding StreamPlayerViewModel}" Grid.ColumnSpan="2"></local:StreamPlayerView>
+
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" Background="DodgerBlue">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock FontSize="15" Margin="10,0,0,0" VerticalAlignment="Center" Text="{Binding TranslationName,Mode=OneWay}"></TextBlock>
+            <StackPanel HorizontalAlignment="Center" Grid.ColumnSpan="3" Orientation="Horizontal" VerticalAlignment="Center">
+                <Button IsEnabled="False"  Command="{Binding RecordCommand}" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+                          HorizontalAlignment="Left">
+                    <materialDesign:PackIcon Kind="Record" Foreground="Red" Height="24" Width="24" />
+                </Button>
+                <Button Margin="10,0,0,0" Command="{Binding StartCommand}" ToolTip="Старт" IsEnabled="{Binding CanStart,Mode=OneWay}" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+                          HorizontalAlignment="Left">
+                    <materialDesign:PackIcon Kind="Play" Foreground="Green"  Height="24" Width="24" />
+                </Button>
+                <Button Margin="10,0,0,0" Command="{Binding StopCommand}" ToolTip="Стоп" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+                          HorizontalAlignment="Left">
+                    <materialDesign:PackIcon Kind="Stop" Foreground="Black"  Height="24" Width="24" />
+                </Button>
+                <Button IsEnabled="False" Margin="10,0,0,0" Command="{Binding ScreenshotCommand}" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+                          HorizontalAlignment="Left">
+                    <materialDesign:PackIcon Kind="Camera" Foreground="Black"   Height="24" Width="24" />
+                </Button>
+            </StackPanel>
+            <Grid Margin="0,0,10,0" Grid.Column="2" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel  Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <materialDesign:PackIcon Kind="Microphone"></materialDesign:PackIcon>
+                    <Slider Panel.ZIndex="0" HorizontalAlignment="Right" Width="100"  VerticalAlignment="Center" Minimum="0" Maximum="100"  Value="{Binding MicrophoneVolume,Mode=TwoWay}"/>
+                </StackPanel>
+                <ProgressBar Grid.Row="1" Margin="0,5,2,0" Width="110" HorizontalAlignment="Right" Orientation="Horizontal" Value="{Binding CurrentInputLevel, Mode=OneWay}" Style="{StaticResource SampleMaxProgressBar}" Height="10" />
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

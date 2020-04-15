@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="Broadcaster.UI.Views.PreparationStreamView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Broadcaster.UI.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:webEye="clr-namespace:WebEye;assembly=WebEye.StreamPlayerControl"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="700">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <materialDesign:Card Padding="2" Margin="2">
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition  Height="200" />
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="360"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <local:StreamPlayerView  DataContext="{Binding StreamPlayerViewModel}" Visibility="{Binding StreamPlayerVisibility}"  Height="{Binding PlayerHeight}" Width="{Binding PlayerWidth}"></local:StreamPlayerView>
+                <local:WebCameraControl  Visibility="{Binding CameraPlayerVisibility}"  Height="{Binding PlayerHeight}" Width="{Binding PlayerWidth}" ></local:WebCameraControl>
+                <!--<webEye:StreamPlayerControl Background="Black"  Width="360"  Height="200" Self="{Binding PlayerControl,Mode=OneWayToSource}" >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="StreamStarted">
+                            <i:InvokeCommandAction Command="{Binding StreamStartedCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </webEye:StreamPlayerControl>
+                <materialDesign:DialogHost Grid.Row="0" IsOpen="{Binding ShowWaitingDialog}">
+                    <materialDesign:DialogHost.DialogContent>
+                        <ProgressBar Style="{DynamicResource MaterialDesignCircularProgressBar}" HorizontalAlignment="Center" Margin="16" IsIndeterminate="True" Value="0" />
+                    </materialDesign:DialogHost.DialogContent>
+                </materialDesign:DialogHost>-->
+                <Button IsEnabled="{Binding TestButtonAvailable}" Grid.Row="1" ToolTip="Посмотреть превью" Command="{Binding StartTestCommand}">Тест</Button>
+            </Grid>
+        </materialDesign:Card>
+        <materialDesign:Card  Grid.RowSpan="2" Margin="2" Grid.Row="1"  VerticalAlignment="Stretch" Grid.Column="0" Padding="5">
+            <ContentPresenter Content="{Binding SelectBroadcastViewModel,Mode=OneWay}"></ContentPresenter>
+        </materialDesign:Card>
+        <ContentPresenter Grid.Column="1"  Grid.Row="0" Grid.RowSpan="3" Content="{Binding RightViewModel,Mode=OneWay}" >
+
+        </ContentPresenter>
+        <StackPanel Visibility="{Binding ContextButtomVisibility}" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+
+            <Button Margin="5,0,0,0" Command="{Binding CancelCommand}" ToolTip="Назад" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+                          HorizontalAlignment="Left">
+                <materialDesign:PackIcon Kind="Close"  Height="24" Width="24" />
+            </Button>
+
+            <Button Margin="5,0,0,0" IsEnabled="{Binding CanStart}" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                          HorizontalAlignment="Left" ToolTip="Начать трансляцию" Command="{Binding StartCommand}">
+                <materialDesign:PackIcon Kind="Play"   Height="24" Width="24" />
+            </Button>
+        </StackPanel>
+
+    </Grid>
+</UserControl>
